@@ -13,12 +13,14 @@ person.printName();
 //task3
 var deck = new Deck();
 deck.shuffle();
-print(deck.cardsWithSuit('Diamonds'));
+print('Demonstrate method where' + deck.cardsWithSuit('Diamonds').toString());
 
 print(deck);
-print(deck.deal(5));
+print('Demonstrate method sublist' + deck.deal(5).toString());
 print(deck);
 
+deck.removeCard('Diamonds', 'Ace');
+print('Demonstrate method removeWhere' + deck.toString());
 }
 
 String myName() {
@@ -33,6 +35,7 @@ class Person {
     printName() {
       print(firstName);
     }
+
 }
 
 class Deck {
@@ -66,6 +69,11 @@ class Deck {
       cards = cards.sublist(handSize);
       return hand;
   }
+
+  removeCard(String suit, String rank) {
+        cards.removeWhere((card) => (card.suit == suit) && (card.rank == rank));
+    }
+
 }
 
 
