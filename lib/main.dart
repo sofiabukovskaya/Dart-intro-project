@@ -12,7 +12,8 @@ person.printName();
 
 //task3
 var deck = new Deck();
-print(deck.toString());
+deck.shuffle();
+print(deck.cardsWithSuit('Diamonds'));
 }
 
 String myName() {
@@ -46,7 +47,18 @@ class Deck {
   String toString() {
     return cards.toString();
   }
+
+  shuffle() {
+      cards.shuffle();
+  }
+
+  cardsWithSuit(String suit) {
+       return cards.where((card){
+        return card.suit == suit;
+      });
+  }
 }
+
 
 class Card {
     String suit;
